@@ -10,7 +10,6 @@ function Art(canvas) {
  * Draws a square
  */
 Art.prototype.drawSquare = function (x, y, w, h) {
-  this.ctx.rect(x, y, w, h);
-  this.ctx.strokeStyle = '#66b5ff';
-  this.ctx.stroke();
+  this.ctx.fillStyle = '#66b5ff';
+  this.ctx.fillRect(x, y, w, h);
 }
