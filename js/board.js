@@ -38,11 +38,24 @@ Board.prototype.handleClickEvent = function (e) {
   var cell = this.getCellFromCoordinates(x, y);
 
   if (cell) {
-    var c = cell[0];
-    var r = cell[1];
-    this.cells[c][r] = !this.cells[c][r];
+    this.triggerCell(cell[0], cell[1]);
     this.show();
   }
+}
+
+Board.prototype.triggerCell = function (x, y) {
+  this.toggleCellState(x, y);
+  this.toggleCellState(x, y - 1);
+  this.toggleCellState(x + 1, y);
+  this.toggleCellState(x, y + 1);
+  this.toggleCellState(x - 1, y);
+}
+
+Board.prototype.toggleCellState = function (x, y) {
+  if (x < 0 || x >= Board.GRID_WIDTH) return;
+  if (y < 0 || y >= Board.GRID_HEIGHT) return;
+
+  this.cells[x][y] = !this.cells[x][y];
 }
 
 Board.prototype.getCellFromCoordinates = function (x, y) {
