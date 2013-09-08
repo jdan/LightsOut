@@ -9,20 +9,28 @@ function Art(canvas, cellWidth, cellPadding) {
 }
 
 /**
+ * Clear the canvas
+ */
+Art.prototype.clear = function () {
+  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+/**
  * Draws a cell
  */
-Art.prototype.drawCell = function (i, j) {
+Art.prototype.drawCell = function (i, j, state) {
   this.drawSquare(
     (this.cellWidth + this.cellPadding) * i + this.cellPadding, 
     (this.cellWidth + this.cellPadding) * j + this.cellPadding, 
     this.cellWidth, 
-    this.cellWidth);
+    this.cellWidth,
+    (state)? '#dd6797' : '#66b5ff');
 }
 
 /**
  * Draws a square
  */
-Art.prototype.drawSquare = function (x, y, w, h) {
-  this.ctx.fillStyle = '#66b5ff';
+Art.prototype.drawSquare = function (x, y, w, h, color) {
+  this.ctx.fillStyle = color;
   this.ctx.fillRect(x, y, w, h);
 }

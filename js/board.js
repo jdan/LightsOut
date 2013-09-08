@@ -36,7 +36,13 @@ Board.prototype.handleClickEvent = function (e) {
   var y = (e.clientY - rect.top) * 2;
 
   var cell = this.getCellFromCoordinates(x, y);
-  console.log(cell);
+
+  if (cell) {
+    var c = cell[0];
+    var r = cell[1];
+    this.cells[c][r] = !this.cells[c][r];
+    this.show();
+  }
 }
 
 Board.prototype.getCellFromCoordinates = function (x, y) {
@@ -53,10 +59,12 @@ Board.prototype.getCellFromCoordinates = function (x, y) {
 }
 
 Board.prototype.show = function () {
+  this.art.clear();
+
   var i, j;
   for (i = 0; i < Board.GRID_WIDTH; i++) {
     for (j = 0; j < Board.GRID_HEIGHT; j++) {
-      this.art.drawCell(i, j);
+      this.art.drawCell(i, j, this.cells[i][j]);
     }
   }
 };
