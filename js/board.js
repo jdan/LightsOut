@@ -25,6 +25,9 @@ Board.prototype._createMatrix = function (width, height, opt_val) {
   return m;
 }
 
+/**
+ * Initializes the board.
+ */
 Board.prototype.init = function () {
   this.canvas.onclick = this.handleClickEvent.bind(this);
   this.show();
