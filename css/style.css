@@ -1,0 +1,17 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f3f3f3;
+}
+
+#main {
+  width: 640px;
+  margin: 40px auto;
+}
+
+#canvas {
+  width: 640px;
+  height: 640px;
+  border: 2px solid #222;
+  background-color: #fff;
+}
