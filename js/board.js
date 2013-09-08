@@ -1,7 +1,7 @@
 function Board(canvas) {
   this.cells = this._createMatrix(Board.GRID_WIDTH, Board.GRID_HEIGHT);
 
-  this.art = new Art(canvas);
+  this.art = new Art(canvas, Board.CELL_WIDTH, Board.CELL_PADDING);
   this.canvas = canvas;
 }
 
